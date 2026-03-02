@@ -5,3 +5,4 @@ torch
 datasets
 tqdm
 nltk
+shap
