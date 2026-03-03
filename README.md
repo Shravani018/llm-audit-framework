@@ -42,5 +42,5 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - Robustness score = 1 - mean normalised perplexity shift across all three perturbation types
 
 **05_explainability_score.ipynb** *(in progress)*
-- Measures token-level importance using SHAP attribution over 100 SST-2 sentences per model
+- Measures token-level importance using SHAP attribution over 25 SST-2 sentences per model (nsamples=50, max_length=32)
 - Explainability score derived from attribution concentration, a focused model assigns high importance to fewer, more meaningful tokens rather than spreading attribution uniformly
