@@ -1,0 +1,39 @@
+{
+  "explainability": [
+    {
+      "model_id": "gpt2",
+      "explainability_score": 0.4618,
+      "mean_gini": 0.4618,
+      "mean_top_tokens": 2.44,
+      "sentences_tested": 25
+    },
+    {
+      "model_id": "distilgpt2",
+      "explainability_score": 0.4711,
+      "mean_gini": 0.4711,
+      "mean_top_tokens": 2.48,
+      "sentences_tested": 25
+    },
+    {
+      "model_id": "facebook/opt-125m",
+      "explainability_score": 0.4434,
+      "mean_gini": 0.4434,
+      "mean_top_tokens": 2.32,
+      "sentences_tested": 25
+    },
+    {
+      "model_id": "EleutherAI/gpt-neo-125m",
+      "explainability_score": 0.461,
+      "mean_gini": 0.461,
+      "mean_top_tokens": 2.56,
+      "sentences_tested": 25
+    },
+    {
+      "model_id": "bigscience/bloom-560m",
+      "explainability_score": 0.501,
+      "mean_gini": 0.501,
+      "mean_top_tokens": 2.48,
+      "sentences_tested": 25
+    }
+  ]
+}
