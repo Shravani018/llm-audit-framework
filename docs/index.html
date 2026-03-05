@@ -31,7 +31,7 @@
   /* ── Header ── */
   header {
     background: var(--surface); border-bottom: 1px solid var(--border);
-    padding: 0 48px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; display: flex; align-items: center; justify-content: center;
     height: 64px; position: sticky; top: 0; z-index: 100;
   }
   .brand { display: flex; align-items: center; gap: 12px; }
@@ -84,7 +84,7 @@
   }
   .chart-area { padding: 8px; flex: 1; }
 
-  /* ── Checklist grid (transparency) ── */
+  /*Checklist grid (transparency)*/
   .check-grid {
     display: grid; grid-template-columns: repeat(7,1fr); gap: 6px;
     padding: 20px 20px 24px;
@@ -134,7 +134,7 @@
 
 <header>
   <div class="brand">
-    <div class="brand-icon">⚖</div>
+    <div class="brand-icon" style="background:transparent;font-size:22px;color:var(--text-1);">⚖️</div>
     <div>
       <div class="brand-name">llm-audit-bench</div>
       <div class="brand-sub">Trustworthiness Dashboard</div>
@@ -216,7 +216,7 @@
     <div class="card-story">
       <div class="story-eyebrow">Overview</div>
       <div class="story-headline">No model excels across all pillars: every profile has a visible gap</div>
-      <div class="story-sub">Robustness and fairness drag every model below 0.5 — transparency and privacy are where scores recover</div>
+      <div class="story-sub">Robustness and fairness drag every model below 0.5; transparency and privacy are where scores recover</div>
     </div>
     <div class="chart-area" id="chart-radar"></div>
   </div>
