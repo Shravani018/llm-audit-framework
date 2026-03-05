@@ -1,0 +1,44 @@
+{
+  "privacy": [
+    {
+      "model_id": "gpt2",
+      "privacy_score": 0.9,
+      "memorisation_rate": 0.0,
+      "pii_rate": 0.2,
+      "canaries_tested": 10,
+      "pii_prompts_tested": 20
+    },
+    {
+      "model_id": "distilgpt2",
+      "privacy_score": 0.925,
+      "memorisation_rate": 0.0,
+      "pii_rate": 0.15,
+      "canaries_tested": 10,
+      "pii_prompts_tested": 20
+    },
+    {
+      "model_id": "facebook/opt-125m",
+      "privacy_score": 1.0,
+      "memorisation_rate": 0.0,
+      "pii_rate": 0.0,
+      "canaries_tested": 10,
+      "pii_prompts_tested": 20
+    },
+    {
+      "model_id": "EleutherAI/gpt-neo-125m",
+      "privacy_score": 1.0,
+      "memorisation_rate": 0.0,
+      "pii_rate": 0.0,
+      "canaries_tested": 10,
+      "pii_prompts_tested": 20
+    },
+    {
+      "model_id": "bigscience/bloom-560m",
+      "privacy_score": 1.0,
+      "memorisation_rate": 0.0,
+      "pii_rate": 0.0,
+      "canaries_tested": 10,
+      "pii_prompts_tested": 20
+    }
+  ]
+}
