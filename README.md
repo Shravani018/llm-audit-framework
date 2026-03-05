@@ -54,6 +54,3 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 **07_aggregate_scores.ipynb**
 - Aggregates all 5 pillar score JSONs into a single weighted trustworthiness index per model
 - Weighted trust index: fairness 25%, robustness 25%, explainability 20%, transparency 15%, privacy 15%
-
-**08_dashboard.html**
-- Visualising trustworthiness dashboard covering privacy, fairness, robustness, transparency, explainability, and a full radar overview
