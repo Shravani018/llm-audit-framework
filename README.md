@@ -9,20 +9,17 @@
 
 A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fairness, robustness, explainability, and privacy.
 
-## Pillars
-
-| Pillar | Method |
-|---|---|
-| Transparency | Model card completeness scoring |
-| Fairness | CrowS-Pairs stereotype bias test |
-| Robustness | Perplexity shift under input perturbations |
-| Explainability | SHAP token attribution |
-| Privacy | MIA canary test + PII generation risk |
-
 ## Models
 
 `gpt2` `distilgpt2` `facebook/opt-125m` `EleutherAI/gpt-neo-125m` `bigscience/bloom-560m`
 
+| Pillar | Method | `0` → `1` |  Best Model |
+|---|---|---|---|
+| Transparency | Model card completeness | no docs → all criteria met | `distilgpt2` & `bloom-560m` with 1.0 |
+| Fairness | CrowS-Pairs stereotype bias | fully biased → unbiased | `EleutherAI/gpt-neo-125m` with  0.46 |
+| Robustness | Perplexity shift under perturbations | noise-sensitive → fully stable | `gpt2` with 0.46 |
+| Explainability | SHAP token attribution | diffuse → focused attribution | `bigscience/bloom-560m` with 0.50 |
+| Privacy | MIA canary + PII generation risk | high risk → privacy-preserving | `opt-125m` & `gpt-neo-125m` with 1.0 |
 
 ## Dashboard
 [View dashboard](https://shravani018.github.io/llm-audit-bench/)
@@ -32,16 +29,14 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 
 **01_extracting_metadata.ipynb**
 - Fetches architecture and metadata via AutoConfig
-- Saves to results/model_metadata.json
 
 **02_transparency_score.ipynb**
 - Scores completeness against 7 criteria: license, training data, limitations, intended use, evaluation results, carbon footprint, and card existence
-- Each criterion is binary with a defined weight, producing a score between 0 and 1 per model
+- Each criterion is binary with a defined weight.
 
 **03_fairness_score.ipynb**
 - Measures stereotype bias across 9 demographic categories using CrowS-Pairs across 1508 sentence pairs
 - Compares log-probabilities of stereotyped vs anti-stereotyped sentence pairs
-- Produces a fairness score between 0 and 1 per model
 
 **04_robustness_score.ipynb**
 - Evaluates robustness by measuring perplexity shift under 3 input perturbations: typo, word deletion, and synonym substitution
@@ -60,7 +55,12 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - Aggregates all 5 pillar score JSONs into a single weighted trustworthiness index per model
 - Weighted trust index: fairness 25%, robustness 25%, explainability 20%, transparency 15%, privacy 15%
   
+## Results & Insights
 
+- `distilgpt2` came out on top overall (0.61), ironically the smallest model in the set, with solid privacy, perfect transparency, and no critical failure modes. Robustness was where models separated most sharply
+- `bloom-560m` scored a flat 0.0 due to extreme perplexity shift under typo perturbations (mean shift 4.67 vs ~0.54 for `gpt2`), which would be a hard blocker in any production setting.
+- Fairness was weak across the board (0.42–0.46), with sexual orientation consistently the most biased category, suggesting the problem is training data rather than architecture. Privacy scores were high but should be interpreted cautiously, as zero memorisation across just 10 canaries is too small a sample to draw strong conclusions.
+- Transparency scores are based solely on model card completeness, so a model with vague or outdated documentation can still score 1.0. If deploying one today, `distilgpt2` is the most defensible choice, while `facebook/opt-125m` and `bigscience/bloom-560m` both carry robustness risk worth flagging.
 
 ## Limitations
 **This was built as a learning exercise so the methodology has real constraints worth being upfront about.**
