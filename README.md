@@ -67,6 +67,7 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 
 - The five models are all small and open-source, under 600M parameters. Nothing here generalises to instruction-tuned or larger models
 - CrowS-Pairs has known quality issues and measures surface-level stereotype preference, not real-world harm
+- Transparency scores are based solely on model card completeness, which may not reflect the true openness of a model
 - Perplexity shift is a proxy for robustness, not a measure of adversarial or out-of-distribution resilience
 - SHAP attribution concentration is one lens on interpretability and does not capture whether token importance aligns with human reasoning
 - The canary memorisation test uses synthetic strings not seen during pre-training, so zero memorisation is expected and not a strong finding
