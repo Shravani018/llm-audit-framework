@@ -1,4 +1,4 @@
-# ⚖️ llm-audit-bench
+# ⚖️ llm-audit-framework
 <p align="center">
   <img src="https://img.shields.io/badge/Transparency-Model_Cards-purple" />
   <img src="https://img.shields.io/badge/Fairness-CrowS--Pairs-blue" />
