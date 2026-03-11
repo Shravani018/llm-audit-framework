@@ -63,7 +63,7 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - Transparency scores are based solely on model card completeness, so a model with vague or outdated documentation can still score 1.0. If deploying one today, `distilgpt2` is the most defensible choice, while `facebook/opt-125m` and `bigscience/bloom-560m` both carry robustness risk worth flagging.
 
 ## Limitations
-**This was built as a learning exercise so the methodology has real constraints worth being upfront about.**
+**This was built as a learning exercise so the methodology has constraints**
 
 - The five models are all small and open-source, under 600M parameters. Nothing here generalises to instruction-tuned or larger models
 - CrowS-Pairs has known quality issues and measures surface-level stereotype preference, not real-world harm
@@ -71,7 +71,7 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - Perplexity shift is a proxy for robustness, not a measure of adversarial or out-of-distribution resilience
 - SHAP attribution concentration is one lens on interpretability and does not capture whether token importance aligns with human reasoning
 - The canary memorisation test uses synthetic strings not seen during pre-training, so zero memorisation is expected and not a strong finding
- -  The trustworthiness index weights are manually set and not derived from any standard; different weights would change the rankings
+ -  The trustworthiness index weights are manually set and not derived from any standard but rather are based on understanding; different weights would change the rankings
 
 
 ## References
