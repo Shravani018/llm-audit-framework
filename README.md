@@ -9,6 +9,8 @@
 
 A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fairness, robustness, explainability, and privacy.
 
+---
+
 ## Models
 
 `gpt2` `distilgpt2` `facebook/opt-125m` `EleutherAI/gpt-neo-125m` `bigscience/bloom-560m`
@@ -21,9 +23,12 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 | Explainability | SHAP token attribution | diffuse → focused attribution | `bigscience/bloom-560m` with 0.50 |
 | Privacy | MIA canary + PII generation risk | high risk → privacy-preserving | `opt-125m` & `gpt-neo-125m` with 1.0 |
 
+---
+
 ## Dashboard
 [View dashboard](https://shravani018.github.io/llm-audit-framework/)
 
+---
 
 ## Notebooks
 
@@ -54,6 +59,8 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 **07_aggregate_scores.ipynb**
 - Aggregates all 5 pillar score JSONs into a single weighted trustworthiness index per model
 - Weighted trust index: fairness 25%, robustness 25%, explainability 20%, transparency 15%, privacy 15%
+
+---
   
 ## Results & Insights
 
@@ -61,6 +68,8 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - `bloom-560m` scored a flat 0.0 due to extreme perplexity shift under typo perturbations (mean shift 4.67 vs ~0.54 for `gpt2`), which would be a hard blocker in any production setting.
 - Fairness was weak across the board (0.42–0.46), with sexual orientation consistently the most biased category, suggesting the problem is training data rather than architecture. Privacy scores were high but should be interpreted cautiously, as zero memorisation across just 10 canaries is too small a sample to draw strong conclusions.
 - Transparency scores are based solely on model card completeness, so a model with vague or outdated documentation can still score 1.0. If deploying one today, `distilgpt2` is the most defensible choice, while `facebook/opt-125m` and `bigscience/bloom-560m` both carry robustness risk worth flagging.
+
+---
 
 ## Limitations
 **This was built as a learning exercise so the methodology has constraints**
@@ -73,6 +82,7 @@ A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fai
 - The canary memorisation test uses synthetic strings not seen during pre-training, so zero memorisation is expected and not a strong finding
  -  The trustworthiness index weights are manually set and not derived from any standard but rather are based on understanding; different weights would change the rankings
 
+---
 
 ## References
 
