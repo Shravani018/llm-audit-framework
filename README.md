@@ -9,6 +9,8 @@
 
 A modular pipeline that audits 5 small HuggingFace LLMs across transparency, fairness, robustness, explainability, and privacy.
 
+> ⚠️ Updated version with newer models and better reproducibility: [View here](https://github.com/Shravani018/llm-audit-bench)
+
 ---
 
 ## Models
